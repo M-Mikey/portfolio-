@@ -269,14 +269,14 @@ export default function Portfolio() {
           <section className={`min-h-screen flex items-center justify-center px-8 max-md:px-4 py-20 max-md:py-16 ${isVisible ? 'appear' : ''}`}>
             <div className="max-w-5xl w-full">
               <div className="mb-6">
-                <span className="mono text-emerald-400 text-sm max-md:text-xs tracking-wider">const developer = {'{'}</span>
+               
               </div>
               
               <h1 className="text-7xl max-md:text-4xl max-sm:text-3xl font-bold mb-4 tracking-tight">
                 MOHIT <span className="accent-text">SHARMA</span>
               </h1>
               
-              <div className="mono text-emerald-400 text-sm max-md:text-xs mb-8 tracking-wider">{'}'}</div>
+              <div className="mono text-emerald-400 text-sm max-md:text-xs mb-8 tracking-wider"></div>
               
               <p className="text-2xl max-md:text-xl max-sm:text-lg text-zinc-400 mb-6 max-w-3xl leading-relaxed">
                 Full-Stack .NET Engineer
