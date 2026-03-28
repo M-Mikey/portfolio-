@@ -43,7 +43,7 @@ export default function Portfolio() {
       'Comprehensive migration reports (Markdown/HTML/JSON)',
       'Saves $50K-$200K per application migration'
     ],
-    liveUrl: 'https://legacylift.vercel.app',
+    liveUrl: 'https://legacy-lift-ui.vercel.app',
     githubUrl: 'https://github.com/M-Mikey/LegacyLift'
   }
 ];
