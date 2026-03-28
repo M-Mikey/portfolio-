@@ -31,7 +31,7 @@ export default function Portfolio() {
     ]
   };
 
-  const selfProjects = [
+const selfProjects = [
   {
     title: 'LegacyLift - ASPX to React Migration Tool',
     description: 'Automated migration platform that converts legacy ASP.NET WebForms applications to modern React + ASP.NET Core. Reduces migration time from months to days, saving enterprises $50K-$200K per application.',
@@ -45,9 +45,22 @@ export default function Portfolio() {
     ],
     liveUrl: 'https://legacy-lift-ui.vercel.app',
     githubUrl: 'https://github.com/M-Mikey/LegacyLift'
+  },
+  {
+    title: 'Enterprise Dashboard',
+    description: 'Production-grade React dashboard featuring real-time system monitoring, notifications, and data visualization. Demonstrates advanced React patterns, state management, and enterprise-grade UI/UX design.',
+    technologies: ['React 18', 'Recharts', 'Framer Motion', 'Vite', 'date-fns', 'CSS3'],
+    highlights: [
+      'Real-time system metrics (CPU, Memory, Disk, Network) with live updates',
+      'Interactive data visualization with Area and Line charts',
+      'Advanced notification system with filtering and search',
+      'Activity logging with real-time event tracking',
+      'Production-ready with 217KB gzipped bundle'
+    ],
+    liveUrl: 'https://notification-dashboard-react.vercel.app',
+    githubUrl: 'https://github.com/M-Mikey/enterprise-dashboard-react'
   }
 ];
-
   const projects = [
     {
       title: 'Project Management System',
