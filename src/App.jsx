@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Code, Database, Server, Cpu, Terminal, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, ChevronRight, Download, Briefcase } from 'lucide-react';
+import { Code, Database, Server, Cpu, Terminal, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, ChevronRight, Download, Briefcase ,Zap } from 'lucide-react';
+import RealtimeNotificationProject from './RealtimeNotificationProject';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('about');
@@ -31,6 +32,19 @@ export default function Portfolio() {
   };
 
   const projects = [
+    {
+      title: 'Project Management System',
+      description: 'Full-stack project management application with ASP.NET Core backend and React frontend. Features real-time updates, user authentication, task tracking, and role-based access control.',
+      technologies: ['ASP.NET Core', 'React.js', 'SQL Server', 'JWT', 'RESTful APIs', 'Entity Framework'],
+      highlights: [
+        'Real-time project tracking and updates',
+        'Role-based access control (Admin/User)',
+        'Task completion approval workflow',
+        'Responsive dashboard with analytics'
+      ],
+      liveUrl: 'https://pmt-amber-psi.vercel.app',
+      githubUrl: 'https://github.com/M-Mikey/ProjectManagementSystem'
+    },
     {
       title: 'Legacy System Modernization',
       description: 'Architected full-stack modernization of 15 legacy ASPX modules to ASP.NET Core microservices with React.js frontend, implementing JWT authentication and OAuth 2.0.',
@@ -113,6 +127,7 @@ export default function Portfolio() {
     { id: 'about', label: 'About', icon: Code },
     { id: 'experience', label: 'Experience', icon: Terminal },
     { id: 'projects', label: 'Projects', icon: Briefcase },
+    { id: 'self-projects', label: 'Self Projects', icon: Zap },
     { id: 'skills', label: 'Skills', icon: Cpu },
     { id: 'contact', label: 'Contact', icon: Mail }
   ];
@@ -241,15 +256,15 @@ export default function Portfolio() {
         
         {/* Social Links */}
         <div className="mt-auto flex flex-col gap-4 pt-6 border-t border-zinc-800">
-          {/* <a
-            href="https://github.com/mohitsharma"
+          <a
+            href="https://github.com/M-Mikey"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-500 hover:text-emerald-400 transition-colors"
             title="GitHub"
           >
             <Github size={20} className="max-md:w-4 max-md:h-4" />
-          </a> */}
+          </a>
           <a
             href="https://www.linkedin.com/in/mohit-sharma-a50383239"
             target="_blank"
@@ -268,15 +283,9 @@ export default function Portfolio() {
         {activeSection === 'about' && (
           <section className={`min-h-screen flex items-center justify-center px-8 max-md:px-4 py-20 max-md:py-16 ${isVisible ? 'appear' : ''}`}>
             <div className="max-w-5xl w-full">
-              <div className="mb-6">
-               
-              </div>
-              
               <h1 className="text-7xl max-md:text-4xl max-sm:text-3xl font-bold mb-4 tracking-tight">
                 MOHIT <span className="accent-text">SHARMA</span>
               </h1>
-              
-              <div className="mono text-emerald-400 text-sm max-md:text-xs mb-8 tracking-wider"></div>
               
               <p className="text-2xl max-md:text-xl max-sm:text-lg text-zinc-400 mb-6 max-w-3xl leading-relaxed">
                 Full-Stack .NET Engineer
@@ -428,7 +437,7 @@ export default function Portfolio() {
                       
                       <div className="mt-auto">
                         <h4 className="text-sm font-semibold text-emerald-400 mb-2 mono">Highlights:</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 mb-4">
                           {project.highlights.map((highlight, i) => (
                             <li key={i} className="flex gap-2 text-zinc-400 text-sm">
                               <ChevronRight size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -436,11 +445,47 @@ export default function Portfolio() {
                             </li>
                           ))}
                         </ul>
+                        
+                        <div className="mt-4 pt-4 border-t border-zinc-800 flex gap-3 flex-wrap">
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-lg hover:bg-emerald-500/20 transition-all duration-300 hover:scale-105"
+                            >
+                              <ExternalLink size={16} />
+                              <span className="text-sm font-semibold">View Live</span>
+                            </a>
+                          )}
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/20 transition-all duration-300 hover:scale-105"
+                            >
+                              <Github size={16} />
+                              <span className="text-sm font-semibold">View Code</span>
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
+          </section>
+        )}
+        
+        {activeSection === 'self-projects' && (
+          <section className={`min-h-screen py-20 px-8 max-md:px-4 ${isVisible ? 'appear' : ''}`}>
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-5xl max-md:text-4xl max-sm:text-3xl font-bold mb-16 max-md:mb-12">
+                Self <span className="accent-text">Projects</span>
+              </h2>
+              <RealtimeNotificationProject />
             </div>
           </section>
         )}
