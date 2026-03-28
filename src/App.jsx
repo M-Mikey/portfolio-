@@ -31,6 +31,23 @@ export default function Portfolio() {
     ]
   };
 
+  const selfProjects = [
+  {
+    title: 'LegacyLift - ASPX to React Migration Tool',
+    description: 'Automated migration platform that converts legacy ASP.NET WebForms applications to modern React + ASP.NET Core. Reduces migration time from months to days, saving enterprises $50K-$200K per application.',
+    technologies: ['ASP.NET Core 8.0', 'React 18', 'TypeScript', 'Roslyn API', 'SignalR', 'Clean Architecture', 'Tailwind CSS'],
+    highlights: [
+      '80% automation - converts 30+ ASPX controls automatically',
+      'Real-time progress tracking with live updates',
+      'Production-ready TypeScript + React hooks code generation',
+      'Comprehensive migration reports (Markdown/HTML/JSON)',
+      'Saves $50K-$200K per application migration'
+    ],
+    liveUrl: 'https://legacylift.vercel.app',
+    githubUrl: 'https://github.com/M-Mikey/LegacyLift'
+  }
+];
+
   const projects = [
     {
       title: 'Project Management System',
@@ -480,15 +497,84 @@ export default function Portfolio() {
         )}
         
         {activeSection === 'self-projects' && (
-          <section className={`min-h-screen py-20 px-8 max-md:px-4 ${isVisible ? 'appear' : ''}`}>
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-5xl max-md:text-4xl max-sm:text-3xl font-bold mb-16 max-md:mb-12">
-                Self <span className="accent-text">Projects</span>
-              </h2>
-              <RealtimeNotificationProject />
+  <section className={`min-h-screen py-20 px-8 max-md:px-4 ${isVisible ? 'appear' : ''}`}>
+    <div className="max-w-5xl mx-auto">
+      <h2 className="text-5xl max-md:text-4xl max-sm:text-3xl font-bold mb-16 max-md:mb-12">
+        Self <span className="accent-text">Projects</span>
+      </h2>
+      
+      <div className="grid md:grid-cols-2 gap-8 max-md:gap-6 mb-12">
+        {selfProjects.map((project, idx) => (
+          <div 
+            key={idx} 
+            className="gradient-border glow"
+            style={{ animationDelay: `${idx * 0.1}s` }}
+          >
+            <div className="gradient-border-inner h-full flex flex-col">
+              <h3 className="text-2xl max-md:text-xl font-bold text-emerald-400 mb-3">{project.title}</h3>
+              <p className="text-zinc-300 mb-4 leading-relaxed text-base max-md:text-sm">
+                {project.description}
+              </p>
+              
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold text-blue-400 mb-2 mono">Technologies:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-zinc-800/60 border border-zinc-700 rounded text-xs mono text-zinc-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="mt-auto">
+                <h4 className="text-sm font-semibold text-emerald-400 mb-2 mono">Highlights:</h4>
+                <ul className="space-y-2 mb-4">
+                  {project.highlights.map((highlight, i) => (
+                    <li key={i} className="flex gap-2 text-zinc-400 text-sm">
+                      <ChevronRight size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <div className="mt-4 pt-4 border-t border-zinc-800 flex gap-3 flex-wrap">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-lg hover:bg-emerald-500/20 transition-all duration-300 hover:scale-105"
+                    >
+                      <ExternalLink size={16} />
+                      <span className="text-sm font-semibold">View Live</span>
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/20 transition-all duration-300 hover:scale-105"
+                    >
+                      <Github size={16} />
+                      <span className="text-sm font-semibold">View Code</span>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-          </section>
-        )}
+          </div>
+        ))}
+      </div>
+
+      <RealtimeNotificationProject />
+    </div>
+  </section>
+)}
 
         {/* Skills Section */}
         {activeSection === 'skills' && (
